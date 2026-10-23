@@ -1,0 +1,115 @@
+# GitHub profile — design plan
+
+Profile: **Dr. Jafar Ahmad** · GitHub [`Dr2b`](https://github.com/Dr2b) · repository `Dr2b/Dr2b`
+
+## 1. Reference analysis (NULL200OK — techniques only, nothing reused)
+
+| Technique in the reference | Verdict for this profile |
+|---|---|
+| Local SVGs with SMIL (`animate`, `animateTransform`) | Works on GitHub. Kept as a technique, but CSS `@keyframes` inside the SVG is preferred so `prefers-reduced-motion` can switch it off. |
+| Typewriter built from `clipPath` width steps | Works, but character widths depend on the viewer's fonts, so the caret drifts. Replaced by a font-independent crossfade. |
+| `stroke-dasharray` + `pathLength` travelling glow on a divider | Robust. Reinterpreted as a tri-colour "signal transduction" trace. |
+| `mask` + linear gradient fade-out ticker | Works; not used (marquee of tool names = badge wall). |
+| External services (typing-svg, shields, stats, trophies, capsule-render, view counter) | Fragile and off-palette. **Not used.** The page has zero runtime dependencies. |
+| Mermaid in `<details>` | Renders on GitHub, but its styling cannot match the palette. Not used. |
+| Snake workflow | Unrelated to this identity. Not used. |
+
+## 2. Creative exploration
+
+**A — Differential Diagnosis.** One trace runs through the whole page and changes form: ECG, then network signal, then log stream. Diagnosis, debugging and incident response are shown as the same act.
+*Strength:* a clear narrative. *Weakness:* ECG lines are the most common "doctor" cliché, and the idea is linear, with no centrepiece.
+
+**B — Host Defense.** *(selected)* "Host" means two things: the organism, and the machine on a network. A blue-team defender protects a host the way the immune system does. The hero is an anatomical cell drawn as software architecture: membrane = trust boundary, receptors = API endpoints, organelle ring = service layer, nucleus = data core. Packets of legitimate traffic flow in. One antigen arrives, a receptor recognises it, and it is contained.
+*Strength:* one metaphor carries all three disciplines without three separate cards, and it is blue-team rather than offensive. *Weakness:* it could become cartoonish, so it is drawn as precise line art with atlas-style annotation.
+
+**C — Anatomical Atlas.** Light "paper" plates, ink line work and figure captions, styled like a vintage anatomy atlas crossed with blueprints.
+*Strength:* very unusual on GitHub. *Weakness:* light plates glare on GitHub dark mode, and paper does not invite motion.
+
+**Decision:** B, borrowing C's editorial layer (figure numbers, leader-line labels, serif captions). Every label in the hero is *dual*: the biological term in mono capitals, and its software meaning in italic beneath. That pairing is the visual signature.
+
+## 3. Tokens
+
+| Token | Hex | Role |
+|---|---|---|
+| `abyss` | `#060A13` | plate background |
+| `deep` | `#0B1424` | panels, nucleus fill |
+| `hair` | `#1C2942` | grid dots, hairlines |
+| `mist` | `#8B9BB4` | secondary text |
+| `bone` | `#E6ECF5` | primary text |
+| `teal` | `#34D1BF` | **Medicine**: membrane, biology |
+| `cyan` | `#5AB8FF` | **Engineering**: service layer, traffic |
+| `violet` | `#A391FF` | **Security**: receptors, detection |
+| `coral` | `#FF8E6E` | the antigen only; the single warm accent |
+
+The tri-colour gradient teal → cyan → violet is the identity mark, used on the signal traces.
+
+**Typography** (system fonts only; GitHub cannot load web fonts into an `<img>` SVG):
+- Display: `Georgia, 'Iowan Old Style', 'Times New Roman', serif` for the name and figure captions.
+- Text: `'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif`.
+- Labels: `'JetBrains Mono', 'SF Mono', Menlo, Consolas, 'DejaVu Sans Mono', monospace`, uppercase and tracked.
+
+## 4. Page sequence
+
+1. **Hero plate** `hero.svg`, Fig. 01 "Host defense": name, thesis, rotating triad, colour legend, and the cell.
+2. Text navigation (no badges).
+3. **Case note**: the About section written as a clinical SOAP note (Subjective / Objective / Assessment / Plan), in Markdown.
+4. **Defense map** `defense-in-depth.svg`, Fig. 02: four layers of defence read three ways (body · system · defender), with a probe lane where an anomaly is caught at layer 2.
+5. **Practice**: the three disciplines in a 3-column table with small local glyphs.
+6. **Case files**: honest "in preparation" state plus a commented template, until real projects are supplied.
+7. **Consult**: verified link only (GitHub); placeholders are commented out.
+8. **Closing plate** `signoff.svg`: *Primum non nocere.*
+
+Divider `signal.svg` between sections: an ECG trace, then a digital square wave, then packet frames, with a travelling tri-colour pulse. It has a transparent background and mid-tone strokes so it reads on light and dark themes.
+
+## 5. Animation spec
+
+| Element | Motion | Period |
+|---|---|---|
+| Cell (whole) | "lub-dub" scale 1 → 1.012, twice, then rest | 1.4 s |
+| Membrane bilayer texture | rotate | 160 s |
+| Service ring (hexagon) | counter-rotate | 90 s |
+| Traffic packets ×6 | fade in, travel receptor → nucleus, fade out; staggered | 6 s |
+| Antigen | approaches, stops at receptor, lock-ring closes, greys out, fades | 10 s |
+| Rotating triad | 3 lines crossfade with 6 px rise | 12 s |
+| Signal pulses | dash travels left → right | 4–6 s |
+
+Rules: nothing faster than 1 s per cycle except the heartbeat; no flashing above 3 Hz; every animated element has a meaningful **static default** (the antigen is drawn in its "contained" state, and only the first triad line is visible), so the plate still reads where animation does not run. `@media (prefers-reduced-motion: reduce)` disables all CSS motion.
+
+## 6. GitHub constraints honoured
+
+- No `<script>`, no `foreignObject`, no external `href`/fonts/images inside any SVG.
+- Images referenced by relative path, so they are served from the repo through GitHub's camo proxy.
+- In an `<img>`, SVG cannot see GitHub's theme, so the large plates are self-contained dark "instrument" plates (intentional on both themes) and dividers/glyphs are transparent with mid-tone strokes.
+- CSS animation is never applied to an element that also carries a `transform` attribute (CSS would override it). Rotations live on wrapper groups.
+- Headings are plain Markdown so GitHub generates anchors (`#case-note`, …) for the nav.
+- Narrative text lives in Markdown, not in SVG, so it is selectable, translatable and readable on mobile.
+
+## 7. Verified information
+
+| Fact | Source |
+|---|---|
+| Name: Jafar Ahmad | GitHub API `name`; stated by the owner |
+| Username: `Dr2b` | GitHub API `login` |
+| Physician | stated by the owner |
+| Full-stack programmer | stated by the owner |
+| Blue-team (defensive security) expertise | stated by the owner |
+| IQ 145 | stated by the owner, who asked for it to be used |
+
+## 8. Missing information (nothing invented)
+
+- **Concrete tech stack.** No languages or frameworks were supplied, and the five public repos are forks of third-party Telegram bots. The Practice section names disciplines, not tools; a commented badge block is ready to fill.
+- **Original projects.** None are public. The Case files section stays in the "in preparation" state.
+- **Contact channels** (email, LinkedIn, website): none public; commented placeholders only.
+- **Medical specialty / institution / years:** not stated and not shown.
+
+## 9. Validation checklist
+
+Status as of 2026-10-23. "GitHub" means rendered by the GitHub GFM API, then viewed with github-markdown-css; not yet viewed on github.com itself.
+
+- [x] Every SVG parses as XML, with `xmlns`, `viewBox`, `width`/`height`, `<title>`
+- [x] No `script`, `foreignObject` or external URL inside SVGs
+- [x] Every README image path resolves to a file
+- [ ] Every internal anchor matches a generated heading slug (slugs match statically; confirm the jump on github.com)
+- [x] Rendered through GitHub's GFM renderer and inspected visually (dark and light)
+- [x] Static (no-animation) frame of each plate still reads correctly
+- [x] Mobile width (~380 px): Markdown text readable; plates scale proportionally

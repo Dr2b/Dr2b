@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="220" viewBox="0 0 1000 220" role="img" aria-labelledby="t d">
+<title id="t">Primum non nocere</title>
+<desc id="d">Closing plate: "Primum non nocere. First, do no harm — to patients, to production, and to the people who trust both." Above a flat trace with a single heartbeat.</desc>
+<!-- Closing plate. Shares tokens, crop marks and the tri-colour trace with Fig. 01. -->
+<defs>
+  <radialGradient id="bg" cx="0.5" cy="0.45" r="0.75">
+    <stop offset="0" stop-color="#0E1A30"/><stop offset="0.6" stop-color="#091120"/><stop offset="1" stop-color="#060A13"/>
+  </radialGradient>
+  <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="0.8" fill="#1C2942"/></pattern>
+  <linearGradient id="tri" x1="56" y1="0" x2="944" y2="0" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#34D1BF"/><stop offset="0.5" stop-color="#5AB8FF"/><stop offset="1" stop-color="#A391FF"/>
+  </linearGradient>
+  <filter id="glow" x="-5%" y="-100%" width="110%" height="300%">
+    <feGaussianBlur stdDeviation="2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <clipPath id="plate"><rect width="1000" height="220" rx="22"/></clipPath>
+</defs>
+<style>
+  .serif { font-family: Georgia, 'Iowan Old Style', 'Times New Roman', serif; }
+  .sans  { font-family: 'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif; }
+  .mono  { font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, 'DejaVu Sans Mono', monospace; }
+  .pulse { stroke-dasharray: 80 1920; animation: pulse 6s linear infinite; }
+  @keyframes pulse { from { stroke-dashoffset: 80; } to { stroke-dashoffset: -1000; } }
+  @media (prefers-reduced-motion: reduce) { .pulse { animation: none; } }
+</style>
+<g clip-path="url(#plate)"><rect width="1000" height="220" fill="url(#bg)"/><rect width="1000" height="220" fill="url(#dots)" opacity="0.7"/></g>
+<rect x="0.5" y="0.5" width="999" height="219" rx="22" fill="none" stroke="#1C2942"/>
+<path d="M20 36 V20 H36 M964 20 H980 V36 M980 184 V200 H964 M36 200 H20 V184" fill="none" stroke="#2A3A5A"/>
+
+<text x="500" y="88" class="serif" font-size="38" font-style="italic" fill="#E6ECF5" text-anchor="middle">Primum non nocere.</text>
+<text x="500" y="122" class="sans" font-size="16" fill="#8B9BB4" text-anchor="middle">First, do no harm — to patients, to production, and to the people who trust both.</text>
+
+<path d="M56 172 H464 l6 -5 l6 5 h8 l4 4 l6 -34 l6 44 l4 -14 h10 q8 -9 16 0 H944" fill="none" stroke="#22314F" stroke-width="1.2" stroke-linejoin="round"/>
+<path class="pulse" d="M56 172 H464 l6 -5 l6 5 h8 l4 4 l6 -34 l6 44 l4 -14 h10 q8 -9 16 0 H944" pathLength="1000" fill="none" stroke="url(#tri)" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" filter="url(#glow)"/>
+<text x="56" y="160" class="mono" font-size="11" letter-spacing="2" fill="#5D6E8A">END OF PLATES</text>
+<text x="944" y="160" class="mono" font-size="11" letter-spacing="2" fill="#5D6E8A" text-anchor="end">DR. JAFAR AHMAD</text>
+</svg>

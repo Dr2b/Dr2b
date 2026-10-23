@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" role="img" aria-labelledby="t">
+<title id="t">Security</title>
+<!-- receptor recognising a bound antigen inside a dashed boundary -->
+<circle cx="24" cy="24" r="19" fill="none" stroke="#A391FF" stroke-width="2" stroke-opacity="0.55" stroke-dasharray="4 2.6"/>
+<path d="M24 36 V25 M24 25 L16.5 17 M24 25 L31.5 17" fill="none" stroke="#A391FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="24" cy="13" r="3" fill="#FF8E6E"/>
+</svg>

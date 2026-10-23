@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 1000 600" role="img" aria-labelledby="t d">
+<title id="t">Fig. 02 — Defense in depth, read three ways</title>
+<desc id="d">Four layers of defence compared across the body, a software system and a blue-team defender: L1 barrier, L2 innate response, L3 adaptive response, L4 memory. In the probe lane, legitimate traffic passes all layers; an antigen breaches the barrier, is detected at L2, answered at L3 and remembered at L4.</desc>
+<!-- Generated layout: bands every 100 units from y=150; columns at x=196 / 436 / 676; probe lane at x=930. -->
+<defs>
+  <radialGradient id="bg" cx="0.5" cy="0.35" r="0.8">
+    <stop offset="0" stop-color="#0E1A30"/><stop offset="0.6" stop-color="#091120"/><stop offset="1" stop-color="#060A13"/>
+  </radialGradient>
+  <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="0.8" fill="#1C2942"/></pattern>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="2.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <clipPath id="plate"><rect width="1000" height="600" rx="22"/></clipPath>
+</defs>
+<style>
+  .serif { font-family: Georgia, 'Iowan Old Style', 'Times New Roman', serif; }
+  .sans  { font-family: 'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif; }
+  .mono  { font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, 'DejaVu Sans Mono', monospace; }
+
+  /* legitimate traffic falls through every layer */
+  .pk { opacity: 0; animation: pk 6s linear infinite; }
+  @keyframes pk { 0% { transform: translateY(0); opacity: 0; } 8% { opacity: 1; } 92% { opacity: 1; } 100% { transform: translateY(410px); opacity: 0; } }
+
+  /* the antigen story, 12 s: breach L1 → detected L2 → answered L3 → remembered L4 */
+  .ag { fill: #FF8E6E; stroke: #FF8E6E; animation: ag 12s ease-in-out infinite; }
+  @keyframes ag {
+    0%   { transform: translateY(-160px); opacity: 0; fill: #FF8E6E; stroke: #FF8E6E; }
+    4%   { opacity: 1; }
+    22%  { transform: translateY(0); fill: #FF8E6E; stroke: #FF8E6E; }
+    32%  { fill: #6F7E96; stroke: #6F7E96; opacity: 1; }
+    48%  { opacity: 0; }
+    100% { transform: translateY(0); opacity: 0; fill: #6F7E96; stroke: #6F7E96; }
+  }
+  .lock { transform-box: fill-box; transform-origin: center; animation: lock 12s ease-out infinite; }
+  @keyframes lock { 0%, 21% { transform: scale(2.4); opacity: 0; } 27% { transform: scale(1); opacity: 1; } 44% { opacity: 1; } 52%, 100% { transform: scale(1); opacity: 0; } }
+  .b2 { animation: b2 12s ease-in-out infinite; }
+  .b3 { animation: b3 12s ease-in-out infinite; }
+  .b4 { animation: b4 12s ease-in-out infinite; }
+  @keyframes b2 { 0%, 22% { opacity: 0; } 27%, 58% { opacity: 1; } 68%, 100% { opacity: 0; } }
+  @keyframes b3 { 0%, 32% { opacity: 0; } 37%, 66% { opacity: 1; } 76%, 100% { opacity: 0; } }
+  @keyframes b4 { 0%, 46% { opacity: 0; } 52%, 90% { opacity: 1; } 98%, 100% { opacity: 0; } }
+
+  @media (prefers-reduced-motion: reduce) { .pk, .ag, .lock, .b2, .b3, .b4 { animation: none !important; } }
+</style>
+<g clip-path="url(#plate)"><rect width="1000" height="600" fill="url(#bg)"/><rect width="1000" height="600" fill="url(#dots)" opacity="0.7"/></g>
+<rect x="0.5" y="0.5" width="999" height="599" rx="22" fill="none" stroke="#1C2942"/>
+<path d="M20 36 V20 H36 M964 20 H980 V36 M980 564 V580 H964 M36 580 H20 V564" fill="none" stroke="#2A3A5A"/>
+<rect x="56" y="47" width="7" height="7" fill="#5AB8FF"/>
+<text x="72" y="55" class="mono" font-size="11.5" letter-spacing="3" fill="#8B9BB4">FIG. 02 — DEFENSE IN DEPTH</text>
+<text x="944" y="55" class="serif" font-size="14" font-style="italic" fill="#8B9BB4" text-anchor="end">the same four layers, read three ways</text>
+<!-- column heads -->
+<line x1="196" y1="96" x2="214" y2="96" stroke="#34D1BF" stroke-width="2"/>
+<text x="196" y="118" class="mono" font-size="11.5" letter-spacing="2.5" fill="#34D1BF">THE BODY</text>
+<text x="196" y="137" class="serif" font-size="13" font-style="italic" fill="#8B9BB4">medicine</text>
+<line x1="436" y1="96" x2="454" y2="96" stroke="#5AB8FF" stroke-width="2"/>
+<text x="436" y="118" class="mono" font-size="11.5" letter-spacing="2.5" fill="#5AB8FF">THE SYSTEM</text>
+<text x="436" y="137" class="serif" font-size="13" font-style="italic" fill="#8B9BB4">full-stack engineering</text>
+<line x1="676" y1="96" x2="694" y2="96" stroke="#A391FF" stroke-width="2"/>
+<text x="676" y="118" class="mono" font-size="11.5" letter-spacing="2.5" fill="#A391FF">THE DEFENDER</text>
+<text x="676" y="137" class="serif" font-size="13" font-style="italic" fill="#8B9BB4">blue team</text>
+<text x="930" y="118" class="mono" font-size="10.5" letter-spacing="2" fill="#5D6E8A" text-anchor="middle">PROBE</text>
+<!-- tissue strata -->
+<polygon points="56,150.0 72,151.2 88,152.2 104,153.0 120,153.4 136,153.5 152,153.1 168,152.4 184,151.4 200,150.3 216,149.1 232,148.0 248,147.2 264,146.7 280,146.5 296,146.8 312,147.4 328,148.3 344,149.4 360,150.6 376,151.7 392,152.6 408,153.2 424,153.5 440,153.3 456,152.8 472,152.0 488,150.9 504,149.7 520,148.6 536,147.6 552,146.9 568,146.5 584,146.6 600,147.0 616,147.8 632,148.8 648,150.0 664,151.2 680,152.2 696,153.0 712,153.4 728,153.5 744,153.1 760,152.4 776,151.4 792,150.3 808,149.1 824,148.0 840,147.2 856,146.7 872,146.5 888,146.8 904,147.4 920,148.3 936,149.4 944,150.0 944,253.4 936,253.2 920,252.5 904,251.5 888,250.4 872,249.2 856,248.1 840,247.2 824,246.7 808,246.5 792,246.7 776,247.3 760,248.2 744,249.3 728,250.5 712,251.6 696,252.6 680,253.2 664,253.5 648,253.4 632,252.9 616,252.0 600,251.0 584,249.8 568,248.6 552,247.6 536,246.9 520,246.5 504,246.6 488,247.0 472,247.7 456,248.7 440,249.9 424,251.1 408,252.1 392,252.9 376,253.4 360,253.5 344,253.2 328,252.5 312,251.5 296,250.4 280,249.2 264,248.1 248,247.2 232,246.7 216,246.5 200,246.7 184,247.3 168,248.2 152,249.3 136,250.5 120,251.6 104,252.6 88,253.2 72,253.5 56,253.4" fill="#0D1830" opacity="0.85"/>
+<polygon points="56,253.4 72,253.5 88,253.2 104,252.6 120,251.6 136,250.5 152,249.3 168,248.2 184,247.3 200,246.7 216,246.5 232,246.7 248,247.2 264,248.1 280,249.2 296,250.4 312,251.5 328,252.5 344,253.2 360,253.5 376,253.4 392,252.9 408,252.1 424,251.1 440,249.9 456,248.7 472,247.7 488,247.0 504,246.6 520,246.5 536,246.9 552,247.6 568,248.6 584,249.8 600,251.0 616,252.0 632,252.9 648,253.4 664,253.5 680,253.2 696,252.6 712,251.6 728,250.5 744,249.3 760,248.2 776,247.3 792,246.7 808,246.5 824,246.7 840,247.2 856,248.1 872,249.2 888,250.4 904,251.5 920,252.5 936,253.2 944,253.4 944,351.8 936,352.3 920,353.0 904,353.4 888,353.5 872,353.1 856,352.3 840,351.3 824,350.2 808,349.0 792,347.9 776,347.1 760,346.6 744,346.5 728,346.8 712,347.4 696,348.4 680,349.5 664,350.7 648,351.8 632,352.7 616,353.3 600,353.5 584,353.3 568,352.7 552,351.9 536,350.8 520,349.6 504,348.5 488,347.5 472,346.8 456,346.5 440,346.6 424,347.1 408,347.9 392,348.9 376,350.1 360,351.3 344,352.3 328,353.0 312,353.4 296,353.5 280,353.1 264,352.3 248,351.3 232,350.2 216,349.0 200,347.9 184,347.1 168,346.6 152,346.5 136,346.8 120,347.4 104,348.4 88,349.5 72,350.7 56,351.8" fill="#0A1426" opacity="0.85"/>
+<polygon points="56,351.8 72,350.7 88,349.5 104,348.4 120,347.4 136,346.8 152,346.5 168,346.6 184,347.1 200,347.9 216,349.0 232,350.2 248,351.3 264,352.3 280,353.1 296,353.5 312,353.4 328,353.0 344,352.3 360,351.3 376,350.1 392,348.9 408,347.9 424,347.1 440,346.6 456,346.5 472,346.8 488,347.5 504,348.5 520,349.6 536,350.8 552,351.9 568,352.7 584,353.3 600,353.5 616,353.3 632,352.7 648,351.8 664,350.7 680,349.5 696,348.4 712,347.4 728,346.8 744,346.5 760,346.6 776,347.1 792,347.9 808,349.0 824,350.2 840,351.3 856,352.3 872,353.1 888,353.5 904,353.4 920,353.0 936,352.3 944,351.8 944,447.6 936,448.1 920,449.1 904,450.3 888,451.5 872,452.4 856,453.1 840,453.5 824,453.4 808,453.0 792,452.2 776,451.1 760,450.0 744,448.8 728,447.8 712,447.0 696,446.6 680,446.5 664,446.9 648,447.6 632,448.6 616,449.7 600,450.9 584,452.0 568,452.8 552,453.4 536,453.5 520,453.2 504,452.6 488,451.7 472,450.6 456,449.4 440,448.3 424,447.4 408,446.7 392,446.5 376,446.7 360,447.2 344,448.1 328,449.1 312,450.3 296,451.5 280,452.4 264,453.1 248,453.5 232,453.4 216,453.0 200,452.2 184,451.1 168,450.0 152,448.8 136,447.8 120,447.0 104,446.6 88,446.5 72,446.9 56,447.6" fill="#0D1830" opacity="0.85"/>
+<polygon points="56,447.6 72,446.9 88,446.5 104,446.6 120,447.0 136,447.8 152,448.8 168,450.0 184,451.1 200,452.2 216,453.0 232,453.4 248,453.5 264,453.1 280,452.4 296,451.5 312,450.3 328,449.1 344,448.1 360,447.2 376,446.7 392,446.5 408,446.7 424,447.4 440,448.3 456,449.4 472,450.6 488,451.7 504,452.6 520,453.2 536,453.5 552,453.4 568,452.8 584,452.0 600,450.9 616,449.7 632,448.6 648,447.6 664,446.9 680,446.5 696,446.6 712,447.0 728,447.8 744,448.8 760,450.0 776,451.1 792,452.2 808,453.0 824,453.4 840,453.5 856,453.1 872,452.4 888,451.5 904,450.3 920,449.1 936,448.1 944,447.6 944,546.9 936,546.7 920,546.5 904,546.7 888,547.3 872,548.2 856,549.3 840,550.5 824,551.6 808,552.6 792,553.2 776,553.5 760,553.4 744,552.9 728,552.0 712,551.0 696,549.8 680,548.6 664,547.6 648,546.9 632,546.5 616,546.6 600,547.0 584,547.7 568,548.8 552,549.9 536,551.1 520,552.1 504,552.9 488,553.4 472,553.5 456,553.2 440,552.5 424,551.5 408,550.4 392,549.2 376,548.1 360,547.2 344,546.7 328,546.5 312,546.7 296,547.3 280,548.2 264,549.3 248,550.5 232,551.6 216,552.6 200,553.2 184,553.5 168,553.4 152,552.9 136,552.0 120,551.0 104,549.8 88,548.6 72,547.6 56,546.9" fill="#0A1426" opacity="0.85"/>
+<polyline points="56,150.0 72,151.2 88,152.2 104,153.0 120,153.4 136,153.5 152,153.1 168,152.4 184,151.4 200,150.3 216,149.1 232,148.0 248,147.2 264,146.7 280,146.5 296,146.8 312,147.4 328,148.3 344,149.4 360,150.6 376,151.7 392,152.6 408,153.2 424,153.5 440,153.3 456,152.8 472,152.0 488,150.9 504,149.7 520,148.6 536,147.6 552,146.9 568,146.5 584,146.6 600,147.0 616,147.8 632,148.8 648,150.0 664,151.2 680,152.2 696,153.0 712,153.4 728,153.5 744,153.1 760,152.4 776,151.4 792,150.3 808,149.1 824,148.0 840,147.2 856,146.7 872,146.5 888,146.8 904,147.4 920,148.3 936,149.4 944,150.0" fill="none" stroke="#24375A" stroke-width="1"/>
+<polyline points="56,253.4 72,253.5 88,253.2 104,252.6 120,251.6 136,250.5 152,249.3 168,248.2 184,247.3 200,246.7 216,246.5 232,246.7 248,247.2 264,248.1 280,249.2 296,250.4 312,251.5 328,252.5 344,253.2 360,253.5 376,253.4 392,252.9 408,252.1 424,251.1 440,249.9 456,248.7 472,247.7 488,247.0 504,246.6 520,246.5 536,246.9 552,247.6 568,248.6 584,249.8 600,251.0 616,252.0 632,252.9 648,253.4 664,253.5 680,253.2 696,252.6 712,251.6 728,250.5 744,249.3 760,248.2 776,247.3 792,246.7 808,246.5 824,246.7 840,247.2 856,248.1 872,249.2 888,250.4 904,251.5 920,252.5 936,253.2 944,253.4" fill="none" stroke="#24375A" stroke-width="1"/>
+<polyline points="56,351.8 72,350.7 88,349.5 104,348.4 120,347.4 136,346.8 152,346.5 168,346.6 184,347.1 200,347.9 216,349.0 232,350.2 248,351.3 264,352.3 280,353.1 296,353.5 312,353.4 328,353.0 344,352.3 360,351.3 376,350.1 392,348.9 408,347.9 424,347.1 440,346.6 456,346.5 472,346.8 488,347.5 504,348.5 520,349.6 536,350.8 552,351.9 568,352.7 584,353.3 600,353.5 616,353.3 632,352.7 648,351.8 664,350.7 680,349.5 696,348.4 712,347.4 728,346.8 744,346.5 760,346.6 776,347.1 792,347.9 808,349.0 824,350.2 840,351.3 856,352.3 872,353.1 888,353.5 904,353.4 920,353.0 936,352.3 944,351.8" fill="none" stroke="#24375A" stroke-width="1"/>
+<polyline points="56,447.6 72,446.9 88,446.5 104,446.6 120,447.0 136,447.8 152,448.8 168,450.0 184,451.1 200,452.2 216,453.0 232,453.4 248,453.5 264,453.1 280,452.4 296,451.5 312,450.3 328,449.1 344,448.1 360,447.2 376,446.7 392,446.5 408,446.7 424,447.4 440,448.3 456,449.4 472,450.6 488,451.7 504,452.6 520,453.2 536,453.5 552,453.4 568,452.8 584,452.0 600,450.9 616,449.7 632,448.6 648,447.6 664,446.9 680,446.5 696,446.6 712,447.0 728,447.8 744,448.8 760,450.0 776,451.1 792,452.2 808,453.0 824,453.4 840,453.5 856,453.1 872,452.4 888,451.5 904,450.3 920,449.1 936,448.1 944,447.6" fill="none" stroke="#24375A" stroke-width="1"/>
+<polyline points="56,546.9 72,547.6 88,548.6 104,549.8 120,551.0 136,552.0 152,552.9 168,553.4 184,553.5 200,553.2 216,552.6 232,551.6 248,550.5 264,549.3 280,548.2 296,547.3 312,546.7 328,546.5 344,546.7 360,547.2 376,548.1 392,549.2 408,550.4 424,551.5 440,552.5 456,553.2 472,553.5 488,553.4 504,552.9 520,552.1 536,551.1 552,549.9 568,548.8 584,547.7 600,547.0 616,546.6 632,546.5 648,546.9 664,547.6 680,548.6 696,549.8 712,551.0 728,552.0 744,552.9 760,553.4 776,553.5 792,553.2 808,552.6 824,551.6 840,550.5 856,549.3 872,548.2 888,547.3 904,546.7 920,546.5 936,546.7 944,546.9" fill="none" stroke="#24375A" stroke-width="1"/>
+<g stroke="#1C2942" stroke-dasharray="2 4">
+  <line x1="416" y1="160" x2="416" y2="540"/>
+  <line x1="656" y1="160" x2="656" y2="540"/>
+  <line x1="896" y1="160" x2="896" y2="540"/>
+</g>
+<!-- rows -->
+<text x="56" y="196" class="serif" font-size="26" fill="#E6ECF5" opacity="0.9">L1</text>
+<text x="56" y="218" class="mono" font-size="10.5" letter-spacing="2" fill="#C5D0E0">BARRIER</text>
+<text x="56" y="235" class="serif" font-size="12.5" font-style="italic" fill="#6F7E96">keep it out</text>
+<text x="196" y="198" class="sans" font-size="15.5" fill="#E6ECF5">Skin &amp; mucosa</text>
+<text x="196" y="220" class="mono" font-size="12" fill="#8B9BB4">physical + chemical barrier</text>
+<text x="436" y="198" class="sans" font-size="15.5" fill="#E6ECF5">Edge &amp; interface</text>
+<text x="436" y="220" class="mono" font-size="12" fill="#8B9BB4">TLS · input validation</text>
+<text x="676" y="198" class="sans" font-size="15.5" fill="#E6ECF5">Hardening</text>
+<text x="676" y="220" class="mono" font-size="12" fill="#8B9BB4">shrink the attack surface</text>
+<text x="56" y="296" class="serif" font-size="26" fill="#E6ECF5" opacity="0.9">L2</text>
+<text x="56" y="318" class="mono" font-size="10.5" letter-spacing="2" fill="#C5D0E0">INNATE</text>
+<text x="56" y="335" class="serif" font-size="12.5" font-style="italic" fill="#6F7E96">respond fast</text>
+<text x="196" y="298" class="sans" font-size="15.5" fill="#E6ECF5">Innate immunity</text>
+<text x="196" y="320" class="mono" font-size="12" fill="#8B9BB4">inflammation, first responders</text>
+<text x="436" y="298" class="sans" font-size="15.5" fill="#E6ECF5">Gateway &amp; identity</text>
+<text x="436" y="320" class="mono" font-size="12" fill="#8B9BB4">authN/Z · rate limits</text>
+<text x="676" y="298" class="sans" font-size="15.5" fill="#E6ECF5">Detection</text>
+<text x="676" y="320" class="mono" font-size="12" fill="#8B9BB4">telemetry · alerting · triage</text>
+<text x="56" y="396" class="serif" font-size="26" fill="#E6ECF5" opacity="0.9">L3</text>
+<text x="56" y="418" class="mono" font-size="10.5" letter-spacing="2" fill="#C5D0E0">ADAPTIVE</text>
+<text x="56" y="435" class="serif" font-size="12.5" font-style="italic" fill="#6F7E96">respond precisely</text>
+<text x="196" y="398" class="sans" font-size="15.5" fill="#E6ECF5">Adaptive immunity</text>
+<text x="196" y="420" class="mono" font-size="12" fill="#8B9BB4">antibodies for one target</text>
+<text x="436" y="398" class="sans" font-size="15.5" fill="#E6ECF5">Services &amp; data</text>
+<text x="436" y="420" class="mono" font-size="12" fill="#8B9BB4">least privilege · isolation</text>
+<text x="676" y="398" class="sans" font-size="15.5" fill="#E6ECF5">Incident response</text>
+<text x="676" y="420" class="mono" font-size="12" fill="#8B9BB4">contain · eradicate · recover</text>
+<text x="56" y="496" class="serif" font-size="26" fill="#E6ECF5" opacity="0.9">L4</text>
+<text x="56" y="518" class="mono" font-size="10.5" letter-spacing="2" fill="#C5D0E0">MEMORY</text>
+<text x="56" y="535" class="serif" font-size="12.5" font-style="italic" fill="#6F7E96">never twice</text>
+<text x="196" y="498" class="sans" font-size="15.5" fill="#E6ECF5">Immunological memory</text>
+<text x="196" y="520" class="mono" font-size="12" fill="#8B9BB4">faster the second time</text>
+<text x="436" y="498" class="sans" font-size="15.5" fill="#E6ECF5">Logs &amp; observability</text>
+<text x="436" y="520" class="mono" font-size="12" fill="#8B9BB4">every event accountable</text>
+<text x="676" y="498" class="sans" font-size="15.5" fill="#E6ECF5">Lessons learned</text>
+<text x="676" y="520" class="mono" font-size="12" fill="#8B9BB4">rules · playbooks · intel</text>
+<!-- defender activation: detection (L2), response (L3), memory (L4) -->
+<rect class="b2" x="668" y="278" width="2.5" height="50" rx="1.25" fill="#A391FF" filter="url(#glow)"/>
+<rect class="b3" x="668" y="378" width="2.5" height="50" rx="1.25" fill="#A391FF" filter="url(#glow)"/>
+<rect class="b4" x="668" y="478" width="2.5" height="50" rx="1.25" fill="#A391FF" filter="url(#glow)"/>
+<!-- probe lane -->
+<line x1="930" y1="146" x2="930" y2="554" stroke="#2A3A5A"/>
+<line x1="923" y1="150" x2="937" y2="150" stroke="#3A4B6B" stroke-width="1.2"/>
+<line x1="923" y1="250" x2="937" y2="250" stroke="#3A4B6B" stroke-width="1.2"/>
+<line x1="923" y1="350" x2="937" y2="350" stroke="#3A4B6B" stroke-width="1.2"/>
+<line x1="923" y1="450" x2="937" y2="450" stroke="#3A4B6B" stroke-width="1.2"/>
+<line x1="923" y1="550" x2="937" y2="550" stroke="#3A4B6B" stroke-width="1.2"/>
+<g fill="#5AB8FF" filter="url(#glow)">
+  <circle class="pk" cx="930" cy="146" r="2.6" style="animation-delay:0s"/>
+  <circle class="pk" cx="930" cy="146" r="2.6" style="animation-delay:-2s"/>
+  <circle class="pk" cx="930" cy="146" r="2.6" style="animation-delay:-4s"/>
+</g>
+<g class="ag" stroke-width="1.3" stroke-linecap="round">
+  <circle cx="930" cy="305" r="4.2" stroke="none"/>
+  <path d="M933.64 307.10 L936.24 308.60 M930.00 309.20 L930.00 312.20 M926.36 307.10 L923.76 308.60 M926.36 302.90 L923.76 301.40 M930.00 300.80 L930.00 297.80 M933.64 302.90 L936.24 301.40" fill="none"/>
+</g>
+<circle class="lock" cx="930" cy="305" r="11" fill="none" stroke="#A391FF" stroke-width="1.3" stroke-dasharray="4 2.2"/>
+<circle class="b4" cx="930" cy="505" r="3.2" fill="none" stroke="#A391FF" stroke-width="1.3"/>
+<circle class="b4" cx="930" cy="505" r="1.2" fill="#A391FF"/>
+<text x="56" y="577" class="mono" font-size="10.5" letter-spacing="0.5" fill="#6F7E96">PROBE — traffic passes all four layers. The antigen breaches L1, is detected at L2, answered at L3, remembered at L4.</text>
+</svg>

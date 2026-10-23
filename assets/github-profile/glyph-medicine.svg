@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" role="img" aria-labelledby="t">
+<title id="t">Medicine</title>
+<!-- membrane ring with a single cardiac complex -->
+<circle cx="24" cy="24" r="19" fill="none" stroke="#34D1BF" stroke-width="2" stroke-opacity="0.55"/>
+<path d="M9 25 H17 l2.5 -2.5 l2.5 2.5 l2 -11 l3 18 l2 -7 H39" fill="none" stroke="#34D1BF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

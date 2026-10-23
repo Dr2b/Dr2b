@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="56" viewBox="0 0 1000 56" role="img" aria-labelledby="t">
+<title id="t">Section divider: a cardiac rhythm becomes a digital signal, then network frames</title>
+<!--
+  Signal transduction divider. Transparent background, mid-tone base stroke so it reads
+  on GitHub light and dark themes. 0–340 cardiac · 340–660 digital · 660–1000 packet frames.
+-->
+<defs>
+  <linearGradient id="tri" x1="0" y1="0" x2="1000" y2="0" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#34D1BF"/>
+    <stop offset="0.5" stop-color="#5AB8FF"/>
+    <stop offset="1" stop-color="#A391FF"/>
+  </linearGradient>
+  <filter id="glow" x="-5%" y="-100%" width="110%" height="300%">
+    <feGaussianBlur stdDeviation="2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
+<style>
+  .pulse { stroke-dasharray: 90 1910; animation: pulse 6s linear infinite; }
+  @keyframes pulse { from { stroke-dashoffset: 90; } to { stroke-dashoffset: -1000; } }
+  @media (prefers-reduced-motion: reduce) { .pulse { animation: none; stroke-dasharray: none; opacity: 0.35; } }
+</style>
+<path id="trace" d="M0 28 H70 l5 -4 l5 4 h6 l3 3 l5 -22 l5 28 l3 -9 h8 q7 -7 14 0 H200 l5 -4 l5 4 h6 l3 3 l5 -22 l5 28 l3 -9 h8 q7 -7 14 0 H340 V18 H364 V38 H380 V18 H412 V38 H424 V18 H440 V38 H470 V18 H486 V38 H500 V18 H532 V38 H548 V18 H572 V38 H588 V28 H672 v-9 h5 v9 h3 v-9 h3 v9 h3 v-9 h7 v9 h18 v-9 h3 v9 h3 v-9 h6 v9 h3 v-9 h3 v9 h22 v-9 h4 v9 h3 v-9 h3 v9 h30 v-6 h3 v6 h40 v-4 h3 v4 H1000" fill="none" stroke="#8B9BB4" stroke-opacity="0.38" stroke-width="1.2" stroke-linejoin="round"/>
+<path class="pulse" d="M0 28 H70 l5 -4 l5 4 h6 l3 3 l5 -22 l5 28 l3 -9 h8 q7 -7 14 0 H200 l5 -4 l5 4 h6 l3 3 l5 -22 l5 28 l3 -9 h8 q7 -7 14 0 H340 V18 H364 V38 H380 V18 H412 V38 H424 V18 H440 V38 H470 V18 H486 V38 H500 V18 H532 V38 H548 V18 H572 V38 H588 V28 H672 v-9 h5 v9 h3 v-9 h3 v9 h3 v-9 h7 v9 h18 v-9 h3 v9 h3 v-9 h6 v9 h3 v-9 h3 v9 h22 v-9 h4 v9 h3 v-9 h3 v9 h30 v-6 h3 v6 h40 v-4 h3 v4 H1000" pathLength="1000" fill="none" stroke="url(#tri)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" filter="url(#glow)"/>
+<!-- transduction nodes where one signal becomes the next -->
+<g fill="none" stroke="#8B9BB4" stroke-opacity="0.6" stroke-width="1.2">
+  <circle cx="340" cy="28" r="3"/>
+  <circle cx="660" cy="28" r="3"/>
+</g>
+</svg>

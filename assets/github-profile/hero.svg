@@ -1,0 +1,249 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="460" viewBox="0 0 1000 460" role="img" aria-labelledby="t d">
+<title id="t">Dr. Jafar Ahmad — Host defense</title>
+<desc id="d">Fig. 01. An anatomical cell drawn as software architecture: the membrane is a trust boundary, receptors are API endpoints, the organelle ring is a service layer and the nucleus is the data core. Legitimate traffic flows in; an antigen is recognised at a receptor and contained.</desc>
+<!--
+  Fig. 01 — HOST DEFENSE
+  Cell centre: (680, 230). Membrane r=150 (outer 154 / inner 146), receptors 154→170,
+  service ring r=96, nucleus r=46. Every animated element has a readable static default;
+  CSS transforms are only applied to elements without a transform attribute.
+-->
+<defs>
+  <radialGradient id="bg" cx="0.68" cy="0.5" r="0.75">
+    <stop offset="0" stop-color="#0F1C33"/>
+    <stop offset="0.55" stop-color="#091120"/>
+    <stop offset="1" stop-color="#060A13"/>
+  </radialGradient>
+  <radialGradient id="cyto" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#34D1BF" stop-opacity="0.10"/>
+    <stop offset="0.7" stop-color="#5AB8FF" stop-opacity="0.04"/>
+    <stop offset="1" stop-color="#34D1BF" stop-opacity="0.12"/>
+  </radialGradient>
+  <linearGradient id="tri" x1="56" y1="0" x2="944" y2="0" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#34D1BF"/>
+    <stop offset="0.5" stop-color="#5AB8FF"/>
+    <stop offset="1" stop-color="#A391FF"/>
+  </linearGradient>
+  <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+    <circle cx="11" cy="11" r="0.8" fill="#1C2942"/>
+  </pattern>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="2.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur stdDeviation="6"/>
+  </filter>
+  <clipPath id="plate"><rect width="1000" height="460" rx="22"/></clipPath>
+</defs>
+
+<style>
+  .serif { font-family: Georgia, 'Iowan Old Style', 'Times New Roman', serif; }
+  .sans  { font-family: 'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif; }
+  .mono  { font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, 'DejaVu Sans Mono', monospace; }
+
+  /* heartbeat: lub-dub, then rest */
+  .cell { transform-origin: 680px 230px; animation: beat 1.4s ease-in-out infinite; }
+  @keyframes beat { 0%,30%,100% { transform: scale(1); } 8% { transform: scale(1.012); } 18% { transform: scale(1.006); } }
+
+  .spin  { transform-origin: 680px 230px; animation: spin 160s linear infinite; }
+  .spinr { transform-origin: 680px 230px; animation: spin 90s linear infinite reverse; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* legitimate traffic: outside → receptor → nucleus */
+  .pk { opacity: 0; animation: pk 7s linear infinite; }
+  @keyframes pk {
+    0%   { transform: translateX(0);      opacity: 0; }
+    10%  { opacity: 1; }
+    80%  { transform: translateX(-176px); opacity: 0.9; }
+    92%  { transform: translateX(-184px); opacity: 0; }
+    100% { transform: translateX(-184px); opacity: 0; }
+  }
+
+  /* antigen: approach, bind at receptor, opsonised (greys out), cleared */
+  .ag { fill: #FF8E6E; stroke: #FF8E6E; animation: ag 10s ease-in-out infinite; }
+  @keyframes ag {
+    0%   { transform: translateX(110px); opacity: 0; fill: #FF8E6E; stroke: #FF8E6E; }
+    6%   { opacity: 1; }
+    38%  { transform: translateX(0); }
+    50%  { fill: #FF8E6E; stroke: #FF8E6E; }
+    60%  { fill: #6F7E96; stroke: #6F7E96; opacity: 1; }
+    84%  { opacity: 0; }
+    100% { transform: translateX(0); opacity: 0; fill: #6F7E96; stroke: #6F7E96; }
+  }
+  .lock { transform-box: fill-box; transform-origin: center; animation: lock 10s ease-out infinite; }
+  @keyframes lock {
+    0%, 39% { transform: scale(2.4); opacity: 0; }
+    48%     { transform: scale(1);   opacity: 1; }
+    74%     { transform: scale(1);   opacity: 1; }
+    86%,100%{ transform: scale(1);   opacity: 0; }
+  }
+  .hit { opacity: 0; animation: hit 10s ease-in-out infinite; }
+  @keyframes hit { 0%, 38% { opacity: 0; } 46% { opacity: 1; } 66% { opacity: 1; } 80%, 100% { opacity: 0; } }
+  .agl { animation: agl 10s ease-in-out infinite; }
+  @keyframes agl { 0%, 44% { opacity: 0; } 54%, 80% { opacity: 1; } 92%, 100% { opacity: 0; } }
+
+  /* rotating triad */
+  .tr { opacity: 0; animation: tr 12s ease-in-out infinite both; }
+  .tr1 { opacity: 1; }
+  .tr2 { animation-delay: 4s; }
+  .tr3 { animation-delay: 8s; }
+  @keyframes tr {
+    0%        { opacity: 0; transform: translateY(6px); }
+    4%, 29%   { opacity: 1; transform: translateY(0); }
+    33%, 100% { opacity: 0; transform: translateY(-6px); }
+  }
+
+  .pulse { stroke-dasharray: 70 1930; animation: pulse 5s linear infinite; }
+  @keyframes pulse { from { stroke-dashoffset: 70; } to { stroke-dashoffset: -1000; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cell, .spin, .spinr, .pk, .ag, .lock, .hit, .agl, .tr, .pulse { animation: none !important; }
+  }
+</style>
+
+<g clip-path="url(#plate)">
+  <rect width="1000" height="460" fill="url(#bg)"/>
+  <rect width="1000" height="460" fill="url(#dots)" opacity="0.7"/>
+</g>
+<rect x="0.5" y="0.5" width="999" height="459" rx="22" fill="none" stroke="#1C2942"/>
+
+<!-- crop marks: atlas plate -->
+<path d="M20 36 V20 H36 M964 20 H980 V36 M980 424 V440 H964 M36 440 H20 V424" fill="none" stroke="#2A3A5A" stroke-width="1"/>
+
+<!-- ── plate header ─────────────────────────────────────────────── -->
+<rect x="56" y="47" width="7" height="7" fill="#34D1BF"/>
+<text x="72" y="55" class="mono" font-size="11.5" letter-spacing="3" fill="#8B9BB4">FIG. 01 — HOST DEFENSE</text>
+
+<!-- ── identity ─────────────────────────────────────────────────── -->
+<text x="54" y="148" class="serif" fill="#E6ECF5"><tspan font-size="32" font-style="italic" fill="#34D1BF">Dr.</tspan><tspan dx="12" font-size="58">Jafar Ahmad</tspan></text>
+<text x="56" y="192" class="sans" font-size="19" fill="#8B9BB4">Host defense — for people and for systems.</text>
+
+<text x="56" y="246" class="mono" font-size="15.5" fill="#5D6E8A">›</text>
+<g class="mono" font-size="15.5">
+  <text class="tr tr1" x="74" y="246" fill="#34D1BF">reads patients like systems.</text>
+  <text class="tr tr2" x="74" y="246" fill="#5AB8FF">builds systems like organisms.</text>
+  <text class="tr tr3" x="74" y="246" fill="#A391FF">defends both like an immune system.</text>
+</g>
+
+<line x1="56" y1="284" x2="116" y2="284" stroke="#2A3A5A"/>
+
+<!-- legend: the colour code used across the whole profile -->
+<g class="mono" font-size="11" letter-spacing="2">
+  <line x1="56" y1="318" x2="74" y2="318" stroke="#34D1BF" stroke-width="1.5"/><circle cx="76" cy="318" r="2.4" fill="#34D1BF"/>
+  <text x="88" y="322" fill="#34D1BF">MEDICINE<tspan dx="10" class="sans" font-size="13" letter-spacing="0" fill="#8B9BB4">clinical reasoning · evidence first</tspan></text>
+  <line x1="56" y1="345" x2="74" y2="345" stroke="#5AB8FF" stroke-width="1.5"/><circle cx="76" cy="345" r="2.4" fill="#5AB8FF"/>
+  <text x="88" y="349" fill="#5AB8FF">ENGINEERING<tspan dx="10" class="sans" font-size="13" letter-spacing="0" fill="#8B9BB4">full-stack · interface to data</tspan></text>
+  <line x1="56" y1="372" x2="74" y2="372" stroke="#A391FF" stroke-width="1.5"/><circle cx="76" cy="372" r="2.4" fill="#A391FF"/>
+  <text x="88" y="376" fill="#A391FF">SECURITY<tspan dx="10" class="sans" font-size="13" letter-spacing="0" fill="#8B9BB4">blue team · detect, respond, harden</tspan></text>
+</g>
+
+<!-- ── the cell ─────────────────────────────────────────────────── -->
+<g class="cell">
+  <!-- cytoplasm + membrane halo -->
+  <circle cx="680" cy="230" r="150" fill="url(#cyto)"/>
+  <circle cx="680" cy="230" r="150" fill="none" stroke="#34D1BF" stroke-width="14" opacity="0.07" filter="url(#soft)"/>
+
+  <!-- receptor → service-ring signalling paths -->
+  <g stroke="#1F3050" stroke-width="1">
+    <line x1="784" y1="230" x2="826" y2="230"/>
+    <line x1="784" y1="230" x2="826" y2="230" transform="rotate(45 680 230)"/>
+    <line x1="784" y1="230" x2="826" y2="230" transform="rotate(90 680 230)"/>
+    <line x1="784" y1="230" x2="826" y2="230" transform="rotate(135 680 230)"/>
+    <line x1="784" y1="230" x2="826" y2="230" transform="rotate(180 680 230)"/>
+    <line x1="784" y1="230" x2="826" y2="230" transform="rotate(225 680 230)"/>
+    <line x1="784" y1="230" x2="826" y2="230" transform="rotate(270 680 230)"/>
+    <line x1="784" y1="230" x2="826" y2="230" transform="rotate(315 680 230)"/>
+  </g>
+
+  <!-- membrane = trust boundary (lipid bilayer) -->
+  <circle cx="680" cy="230" r="154" fill="none" stroke="#34D1BF" stroke-width="1.2" opacity="0.6"/>
+  <circle cx="680" cy="230" r="146" fill="none" stroke="#34D1BF" stroke-width="1" opacity="0.35"/>
+  <circle class="spin" cx="680" cy="230" r="150" fill="none" stroke="#34D1BF" stroke-width="6" stroke-dasharray="1 4.2" opacity="0.32"/>
+
+  <!-- service layer: organelle ring -->
+  <g class="spinr">
+    <circle cx="680" cy="230" r="96" fill="none" stroke="#5AB8FF" stroke-width="0.8" stroke-dasharray="2 6" opacity="0.45"/>
+    <polygon points="763.1,278 680,326 596.9,278 596.9,182 680,134 763.1,182" fill="none" stroke="#5AB8FF" stroke-width="1" opacity="0.3"/>
+    <g stroke="#5AB8FF" stroke-width="1" opacity="0.18">
+      <line x1="763.1" y1="278" x2="596.9" y2="182"/>
+      <line x1="680" y1="326" x2="680" y2="134"/>
+      <line x1="596.9" y1="278" x2="763.1" y2="182"/>
+    </g>
+    <g fill="#0B1424" stroke="#5AB8FF" stroke-width="1.4">
+      <circle cx="763.1" cy="278" r="5"/><circle cx="680" cy="326" r="5"/><circle cx="596.9" cy="278" r="5"/>
+      <circle cx="596.9" cy="182" r="5"/><circle cx="680" cy="134" r="5"/><circle cx="763.1" cy="182" r="5"/>
+    </g>
+  </g>
+
+  <!-- nucleus = data core, with a double helix that doubles as two signals -->
+  <circle cx="680" cy="230" r="46" fill="#0B1424" stroke="#E6ECF5" stroke-width="1" opacity="0.95" stroke-opacity="0.35"/>
+  <circle cx="680" cy="230" r="38" fill="none" stroke="#34D1BF" stroke-width="0.8" stroke-dasharray="1.5 3" opacity="0.45"/>
+  <g fill="none" stroke-width="1.4" stroke-linecap="round">
+    <path d="M652 230 Q659 214 666 230 T680 230 T694 230 T708 230" stroke="#34D1BF"/>
+    <path d="M652 230 Q659 246 666 230 T680 230 T694 230 T708 230" stroke="#5AB8FF"/>
+  </g>
+  <g stroke="#8B9BB4" stroke-width="0.9" opacity="0.45">
+    <line x1="659" y1="223" x2="659" y2="237"/><line x1="673" y1="223" x2="673" y2="237"/>
+    <line x1="687" y1="223" x2="687" y2="237"/><line x1="701" y1="223" x2="701" y2="237"/>
+  </g>
+
+  <!-- receptors = endpoints (Y-shaped: antibody / branch) -->
+  <g fill="none" stroke="#A391FF" stroke-width="1.6" stroke-linecap="round">
+    <path id="rx" d="M834 230 H843 M843 230 L850 223.5 M843 230 L850 236.5"/>
+    <use href="#rx" transform="rotate(45 680 230)"/>
+    <use href="#rx" transform="rotate(90 680 230)"/>
+    <use href="#rx" transform="rotate(135 680 230)"/>
+    <use href="#rx" transform="rotate(180 680 230)"/>
+    <use href="#rx" transform="rotate(225 680 230)"/>
+    <use href="#rx" transform="rotate(270 680 230)"/>
+    <use href="#rx" transform="rotate(315 680 230)"/>
+  </g>
+
+  <!-- legitimate traffic: one packet per receptor, staggered -->
+  <g fill="#5AB8FF" filter="url(#glow)">
+    <g><circle class="pk" cx="910" cy="230" r="2.6" style="animation-delay:0s"/></g>
+    <g transform="rotate(45 680 230)"><circle class="pk" cx="910" cy="230" r="2.6" style="animation-delay:-1s"/></g>
+    <g transform="rotate(90 680 230)"><circle class="pk" cx="910" cy="230" r="2.6" style="animation-delay:-2s"/></g>
+    <g transform="rotate(135 680 230)"><circle class="pk" cx="910" cy="230" r="2.6" style="animation-delay:-3s"/></g>
+    <g transform="rotate(180 680 230)"><circle class="pk" cx="910" cy="230" r="2.6" style="animation-delay:-4s"/></g>
+    <g transform="rotate(225 680 230)"><circle class="pk" cx="910" cy="230" r="2.6" style="animation-delay:-5s"/></g>
+    <g transform="rotate(270 680 230)"><circle class="pk" cx="910" cy="230" r="2.6" style="animation-delay:-6s"/></g>
+  </g>
+
+  <!-- the antigen, recognised at the 315° receptor and contained -->
+  <g transform="rotate(315 680 230)">
+    <path class="hit" d="M834 230 H843 M843 230 L850 223.5 M843 230 L850 236.5" fill="none" stroke="#D9D2FF" stroke-width="2" stroke-linecap="round" filter="url(#glow)"/>
+    <g class="ag" stroke-width="1.3" stroke-linecap="round">
+      <circle cx="860" cy="230" r="4.2" stroke="none"/>
+      <path d="M864.2 230 L867.2 230 M862.1 233.64 L863.6 236.24 M857.9 233.64 L856.4 236.24 M855.8 230 L852.8 230 M857.9 226.36 L856.4 223.76 M862.1 226.36 L863.6 223.76" fill="none"/>
+    </g>
+    <circle class="lock" cx="860" cy="230" r="11" fill="none" stroke="#A391FF" stroke-width="1.3" stroke-dasharray="4 2.2"/>
+  </g>
+</g>
+
+<!-- ── atlas annotations: biology above, software below ─────────── -->
+<g fill="none" stroke="#3A4B6B" stroke-width="0.9">
+  <polyline points="853,230 857,230"/>
+  <polyline points="814,308 856,318"/>
+  <polyline points="713,263 780,392 856,392"/>
+</g>
+<g class="agl">
+  <polyline points="817,94 838,76 856,76" fill="none" stroke="#A391FF" stroke-width="0.9" opacity="0.8"/>
+  <text x="862" y="80" class="mono" font-size="11" letter-spacing="1.5" fill="#FF8E6E">ANTIGEN</text>
+  <text x="862" y="96" class="serif" font-size="13" font-style="italic" fill="#A391FF">anomaly, contained</text>
+</g>
+<g class="mono" font-size="11" letter-spacing="1.5" fill="#C5D0E0">
+  <text x="862" y="226">RECEPTOR</text>
+  <text x="862" y="314">MEMBRANE</text>
+  <text x="862" y="388">NUCLEUS</text>
+</g>
+<g class="serif" font-size="13" font-style="italic" fill="#8B9BB4">
+  <text x="862" y="242">api endpoint</text>
+  <text x="862" y="330">trust boundary</text>
+  <text x="862" y="404">data core</text>
+</g>
+
+<!-- ── vital sign baseline: the profile's signature trace ───────── -->
+<path d="M56 430 H636 l6 -5 l6 5 h8 l4 4 l6 -34 l6 44 l4 -14 h10 q8 -9 16 0 H944" fill="none" stroke="#22314F" stroke-width="1.2" stroke-linejoin="round"/>
+<path class="pulse" d="M56 430 H636 l6 -5 l6 5 h8 l4 4 l6 -34 l6 44 l4 -14 h10 q8 -9 16 0 H944" pathLength="1000" fill="none" stroke="url(#tri)" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" filter="url(#glow)"/>
+</svg>

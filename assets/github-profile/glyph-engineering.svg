@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" role="img" aria-labelledby="t">
+<title id="t">Engineering</title>
+<!-- three architecture layers: interface, service, data -->
+<circle cx="24" cy="24" r="19" fill="none" stroke="#5AB8FF" stroke-width="2" stroke-opacity="0.55"/>
+<g fill="none" stroke="#5AB8FF" stroke-width="2.2" stroke-linejoin="round">
+  <rect x="14" y="13" width="20" height="5" rx="1.5"/>
+  <rect x="14" y="21.5" width="20" height="5" rx="1.5"/>
+  <rect x="14" y="30" width="20" height="5" rx="1.5"/>
+</g>
+<circle cx="30" cy="15.5" r="1" fill="#5AB8FF"/><circle cx="30" cy="24" r="1" fill="#5AB8FF"/><circle cx="30" cy="32.5" r="1" fill="#5AB8FF"/>
+</svg>
