@@ -1,0 +1,35 @@
+name: Immune patrol
+
+# Regenerates Fig. 03 (assets/github-profile/immune-patrol.svg) from the public
+# contribution calendar, with a new outbreak seeded for each day.
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate the outbreak
+        run: python .github/scripts/immune_patrol.py "${{ github.repository_owner }}" assets/github-profile/immune-patrol.svg
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/github-profile/immune-patrol.svg
+          if ! git diff --cached --quiet; then
+            git commit -m "Immune patrol: new outbreak"
+            git push
+          fi

@@ -13,7 +13,8 @@
   <a href="#defense-in-depth">Defense&nbsp;in&nbsp;depth</a> &nbsp;·&nbsp;
   <a href="#practice">Practice</a> &nbsp;·&nbsp;
   <a href="#case-files">Case&nbsp;files</a> &nbsp;·&nbsp;
-  <a href="#consult">Consult</a>
+  <a href="#consult">Consult</a> &nbsp;·&nbsp;
+  <a href="#immune-patrol">Immune&nbsp;patrol</a>
 </p>
 
 <p align="center"><img src="./assets/github-profile/signal.svg" width="100%" alt=""></p>
@@ -130,6 +131,14 @@ Interested in work where medicine, software and security overlap.
   &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/YOUR-ID">LinkedIn</a>
   &nbsp;·&nbsp; <a href="https://your-site.example">Website</a>
   -->
+</p>
+
+## Immune patrol
+
+Every square is one day of my GitHub activity, read as living tissue. Each morning a new outbreak is seeded into it: antigens appear and spread to neighbouring days, and a phagocyte hunts every one down until the tissue reads *all clear*. It is regenerated daily by a GitHub Action, so no two days play the same.
+
+<p align="center">
+  <img src="./assets/github-profile/immune-patrol.svg" width="100%" alt="Fig. 03 — Immune patrol. The last year of contributions drawn as tissue; antigens appear and spread to neighbouring days while a phagocyte hunts them down, leaving memory marks, until the tissue reads all clear. A new outbreak is generated every day.">
 </p>
 
 <br>
